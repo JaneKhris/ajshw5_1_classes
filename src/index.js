@@ -1,1 +1,1 @@
-import './js/classes';
+import './js/Character';
