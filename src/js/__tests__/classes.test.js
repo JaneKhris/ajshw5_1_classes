@@ -78,6 +78,6 @@ test.each([
     level: 1,
   }],
 ])('test class', (name, type, Class_, expected) => {
-  const a = new Class_(name, type);
-  expect(a).toEqual(expected);
+  const char = new Class_(name, type);
+  expect(char).toEqual(expected);
 });
