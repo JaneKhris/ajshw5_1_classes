@@ -2,24 +2,21 @@ const types = ['Bowerman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'
 
 export default class Character {
   constructor(name, type) {
-    this.name = (() => {
-      if (!(typeof (name) === 'string')) {
-        throw new Error('Необходимо передать имя в виде строки');
-      }
-      if (name.length < 2 || name.length > 10) {
-        throw new Error('Длина имени должна быть от 2 до 10 символов');
-      }
-      return name;
-    })();
-    this.type = (() => {
-      if (typeof (type) !== 'string') {
-        throw new Error('Необходимо передать тип в виде строки');
-      }
-      if (!types.includes(type)) {
-        throw new Error('Такого типа не существует');
-      }
-      return type;
-    })();
+    if (!(typeof (name) === 'string')) {
+      throw new Error('Необходимо передать имя в виде строки');
+    }
+    if (name.length < 2 || name.length > 10) {
+      throw new Error('Длина имени должна быть от 2 до 10 символов');
+    }
+    if (typeof (type) !== 'string') {
+      throw new Error('Необходимо передать тип в виде строки');
+    }
+    if (!types.includes(type)) {
+      throw new Error('Такого типа не существует');
+    }
+
+    this.name = name;
+    this.type = type;
     this.health = 100;
     this.level = 1;
   }
